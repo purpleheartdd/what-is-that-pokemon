@@ -1,0 +1,86 @@
+/* Styles the title to be centered */
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
+
+/* Sets the background color of the entire page */
+body {
+  background-color: #81B8FB;
+}
+
+/* Styles the container that holds all Pokémon cards */
+.pokemon-display {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Basic styling for each Pokémon card */
+.pokemon-card {
+  width: 150px;
+  height: 200px;
+  perspective: 1000px;
+  /* Enables 3D transformations for the flip effect */
+}
+
+/* Styles the flipper inside each Pokémon card */
+.pokemon-flipper {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  /* Smooths the flipping animation */
+  transform-style: preserve-3d;
+  /* Allows children to be positioned in 3D space */
+  cursor: pointer;
+  /* Changes the cursor to indicate clickable items */
+}
+
+/* Styles the front and back sides of the flip card */
+.pokemon-front,
+.pokemon-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  /* Prevents the back side from being visible when facing away */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Specific styling for the front side */
+.pokemon-front {
+  background: #f0f0f0;
+}
+
+/* Specific styling for the back side */
+.pokemon-back {
+  background: white;
+  transform: rotateY(180deg);
+  /* Rotates the back side to face away by default */
+}
+
+/* Ensures the flipper rotates on the Y-axis when flipped */
+.pokemon-card.flipped .pokemon-flipper {
+  transform: rotateY(180deg);
+}
+
+/* Styles for Pokémon images and shadows */
+.pokemon-image,
+.pokemon-shadow {
+  width: 100px;
+  height: 100px;
+}
+
+/* Styles for Pokémon names */
+.pokemon-name {
+  font-size: 16px;
+  font-weight: bold;
+}
